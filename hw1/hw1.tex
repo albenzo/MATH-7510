@@ -27,6 +27,8 @@
   Construct several examples of homotopic and non-homotopic maps.
 \end{problem}
 
+See attached.
+
 \sk
 
 \begin{problem} %2
@@ -34,7 +36,32 @@
 \end{problem}
 
 \begin{proof}
-  
+  To show that the relation of fixed-endpoint homotopy ($\sim$)is an equivalence relation
+  we will show that it is reflexive, symmetric, and transitive.
+
+  Let $f:X\rightarrow Y$ be a continuous function. Then we can construct a fixed endpoint
+  homotopy from $f$ to $f$ via $H(x,t)=f(x)$ showing that $\sim$ is reflexive.
+
+  Next let $f\sim g$. Then there is a fixed endpoint homotopy $H(x,t)$ from $f$ to $g$.
+  Define $H':X\times [0,1]\rightarrow Y$ via $H'(x,t)=H(x,1-t)$. Then $H'$ is a homotopy
+  from $g$ to $f$ that fixes the endpoints since $H$ did as well demonstrating that
+  $\sim$ is reflexive.
+
+  Finally suppose that $f\sim g$ and $g\sim h$. Then there are fixed endpoint
+  homotopies $F$ from $f$ to $g$ and $G$ from $g$ to $h$. Define a new homotopy
+  via
+  \[
+    H(x,t) = \left\{
+      \begin{array}{cc}
+        F(x,2t) & 0\leq t\leq \frac{1}{2}\\
+        G(x,2t-1) & \frac{1}{2}\leq t\leq 1\\
+      \end{array}
+      \right.
+    \]
+    This homotopy will fix the endpoints since the two it is constructed from do.
+
+    Therefore since $\sim$ is reflexive, symmetric, and transitive it is an
+    equivalence relation.
 \end{proof}
 
 \sk
@@ -43,6 +70,8 @@
   Construct some examples of paths which are fixed-endpoint homotopic, and some
   which are not.
 \end{problem}
+
+See attached.
 
 \sk
 
@@ -61,7 +90,58 @@
 \end{problem}
 
 \begin{proof}
-  
+  \begin{itemize}
+  \item[a)] Let $U$ be a convex open subset of $\bb{R}^n$ and let $u\in U$. 
+    Given any point $x$ we can construct a path $p_x$ from $x$ to $u$ via the definition
+    of convexity. Then construct a homotopy from $id_X$  to the constant map at $u$
+    ($c_u$) via $H(x,t)=p_x(t)$.
+
+    Therefore since $id_X\sim c_u$ for $U$, any open convex subset of $\bb{R}^n$ is
+    contractible.
+  \item[b)] Let $X$ be a contractible space and let $x,y\in X$ be points in $X$.
+    Since $X$ is contractible we have a homotopy $H$ from $id_X$ to $c_z$ for some
+    point $z\in X$. Define a path from $x$ to $z$ via $p_x(t)=H(x,t)$ and a path
+    from $z$ to $y$ via $p_y(t)=H(y,(1-t))$. Then the path $p_x*p_y$ is a path
+    from $x$ to $y$.
+
+    Therefore since a path exists between any two point in a contractible space $X$,
+    $X$ is path connected.
+  \item[c)] Let $Y$ be a contractible space and $f,g:X\rightarrow Y$. Since $Y$ is
+    contractible there exists a homotopy $H$ from $id_Y$ to a constant function
+    $c_y$. Define $H_f(x,t)=H(f(x),t)$ and $H_g(x,t)=H(g(x),t)$. Then define
+    a homotopy $F:X\times[0,1]\rightarrow Y$ via
+    \[
+      F(x,t) = \left\{
+        \begin{array}{cc}
+          H_f(x,2t) & 0\leq t \leq \frac{1}{2}\\
+          H_g(x,2(1-t)) & \frac{1}{2}\leq  t\leq 1\\
+        \end{array}
+        \right.
+      \]
+
+      Therefore any two maps into a contractible space are homotopic.
+    \item[d)] Let $X$ be a contractible space and $Y$ a path-connected space. Since
+      $X$ is contractible there is a homotopy $H$ from $id_X$ to a constant map $c_{x_0}$.
+      Let $f,g:X\rightarrow Y$ and $p$ a path from $f(x_0)$ to $g(x_0)$. Then define
+      a homotopy $F:X\times[0,1]\rightarrow Y$ from $f$ to $g$ via
+      \[
+        F(x,t) = \left\{
+          \begin{array}{cc}
+            f(H(x,3t)) & 0\leq t\leq \frac{1}{3}\\
+            p(3t-1) & \frac{1}{3}\leq t\leq\frac{2}{3}\\
+            g(H(x,3-3t)) & \frac{2}{3}\leq t \leq 1\\
+          \end{array}
+        \right.
+      \]
+
+      Therefore if $X$ is contractible and $Y$ is path connected any two maps
+      $f:X\rightarrow Y$ are homotopic.
+
+      This does not hold if we remove the path connected assumption. Let
+      $\bb{R}_2=\bb{R}\times\{0\}\cup \bb{R}\times\{1\}$. Then
+      the map $f(x)=(x,0)$ is not homotopic to $g(x)=(x,1)$ since there is no path
+      between the two copies of $\bb{R}$.
+  \end{itemize}
 \end{proof}
 
 \sk
@@ -70,13 +150,61 @@
   Check that the fundamental group of a pointed space $(X,x_0)$ is a group.
 \end{problem}
 
-\begin{proof}
+\begin{proof} To show that $\pi(X,x_0)$ is a group we need to verify that
+  that path concatenation is associative, there is an identity, and that there are inverses.
+  We denote the equivalence class of a loop $\alpha$ via $[\alpha]$
   \begin{itemize}
-  \item[a)] 
-  \item[b)] 
-  \item[c)] 
-  \item[d)] 
-  \end{itemize}  
+  \item Let $[\alpha],[\beta],[\gamma]\in\pi(X,x_0)$. Then we can define a fixed endpoint
+    homotopy between $(\alpha*\beta)*\gamma$ and $\alpha*(\beta*\gamma)$ via
+    \[
+      H(t,s) = \left\{
+        \begin{array}{cc}
+          \alpha(\frac{4t}{s+1}) & 0\leq t \leq \frac{s+1}{4}\\
+          \beta(4t-s-1) & \frac{s+1}{4}\leq t\leq \frac{s+2}{4}\\
+          \gamma(\frac{4t-s-2}{2-s}) & \frac{s+2}{4} \leq t \leq 1
+        \end{array}
+      \right. 
+    \]
+    Since there is a fixed endpoint homotopy between them they lie in the same
+    equivalence class of loops.
+
+    Therefore the concatenation operation on loops is associative.
+  \item Let $[\alpha]\in\pi(X,x_0)$ and let $p_{x_0}$ be the constant loop at $x_0$.
+    Consider the loop $\alpha*p_{x_0}$. We can then construct a fixed endpoint homotopy from
+    $\alpha*p_{x_0}$ to $\alpha$ via \textbf{I think the second line is wrong}
+    \[
+      H(t,s)=\left\{
+        \begin{array}{cc}
+          \alpha(\frac{2t}{1+s}) & 0 \leq t \leq \frac{1+s}{2}\\
+          p_{x_0}(\frac{2t}{1+s}-1) & \frac{1+s}{2}\leq t\leq 1\\
+        \end{array}
+      \right.
+    \]
+
+    Since there is a fixed endpoint homotopy between them they lie in the same equivalence
+    class of loops and the constant loop is a right identity.
+    
+    Therefore there exists a right identity in $\pi(X,x_0)$.
+  \item Let $[\alpha]\in\pi(X,x_0)$. Then define $\beta(t)=\alpha(1-t)$. We can define
+    a homotopy from $\alpha*\beta$ to $p_{x_0}$ via
+    \[
+      H(t,s) = \left\{
+        \begin{array}{cc}
+          \alpha(2(1-s)t) & 0 \leq t \leq \frac{1}{2}\\
+          \beta(2(1-s)t+(2s-1)) & \frac{1}{2}\leq t\leq 1\\                            
+        \end{array}
+      \right.
+    \]
+
+    Since there is a fixed endpoint homotopy between them they lie in the same equivalence
+    class of loops which implies that $\beta$ is a right inverse of $\alpha$.
+
+    Therefore given $[\alpha]\in\pi(X,x_0)$ there exists a right inverse.
+  \end{itemize}
+
+  Therefore since loop concatenation is associative, there exists an identity element,
+  and any class of loops has an inverse we have that $\pi(X,x_0)$ is a group under the
+  loop concatenation operation.
 \end{proof}
 
 \sk
@@ -87,7 +215,27 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $p$ denote a path from $x_1$ to $x_0$ and let $p_r=p(1-t)$. Then define
+  a map $\phi([\alpha]):\pi(X,x_0)\rightarrow\pi(X,x_1)$ via
+  \[ \phi([\alpha])=[p^r*\alpha*p]\]
+  We can define an inverse to $\phi$ as
+  \[ \phi^{-1}([\alpha])=[p*\alpha*p^r]\]
+  To verify for that it is indeed an inverse we can check
+  \[ \phi\circ\phi^{-1}([\alpha])=[p^r*p*\alpha*p^r*p]=[\alpha]\]
+  and
+  \[ \phi^{-1}\circ\phi([\alpha])=[p*p^r*\alpha*p*p^r]=[\alpha]\].
+  Therefore $\phi$ is a bijection.
+
+  To show that $\phi$ is a homomorphism we will show that $\phi([\alpha])*\phi([\beta])=
+  \phi([\alpha]*[\beta])$ via
+  \[ \phi([\alpha])*\phi([\beta])=[p^r*\alpha*p]*[p^r\beta*p] =
+    [p^r*\alpha*p*p^r*\beta*p]=[p^r\alpha*\beta*p]=\phi([\alpha*\beta])=
+    \phi([\alpha]*[\beta])\]
+  Since $\phi$ preserves the group operation it is indeed a homomorphism and thus
+  and isomorphism.
+
+  Therefore if $x_0,x_1$ are in the same path component of a space $X$ then
+  $\pi_1(X,x_0)\simeq\pi_1(X,x_1)$.
 \end{proof}
 
 \sk
