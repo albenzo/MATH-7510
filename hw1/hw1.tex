@@ -171,12 +171,12 @@ See attached.
     Therefore the concatenation operation on loops is associative.
   \item Let $[\alpha]\in\pi(X,x_0)$ and let $p_{x_0}$ be the constant loop at $x_0$.
     Consider the loop $\alpha*p_{x_0}$. We can then construct a fixed endpoint homotopy from
-    $\alpha*p_{x_0}$ to $\alpha$ via \textbf{I think the second line is wrong}
+    $\alpha*p_{x_0}$ to $\alpha$ via 
     \[
       H(t,s)=\left\{
         \begin{array}{cc}
           \alpha(\frac{2t}{1+s}) & 0 \leq t \leq \frac{1+s}{2}\\
-          p_{x_0}(\frac{2t}{1+s}-1) & \frac{1+s}{2}\leq t\leq 1\\
+          p_x(\frac{2t-(1+s)}{1-s}) & \frac{1+s}{2}< t\leq 1\\
         \end{array}
       \right.
     \]
@@ -215,26 +215,30 @@ See attached.
 \end{problem}
 
 \begin{proof}
-  Let $p$ denote a path from $x_1$ to $x_0$ and let $p_r=p(1-t)$. Then define
-  a map $\phi([\alpha]):\pi(X,x_0)\rightarrow\pi(X,x_1)$ via
-  \[ \phi([\alpha])=[p^r*\alpha*p]\]
-  We can define an inverse to $\phi$ as
-  \[ \phi^{-1}([\alpha])=[p*\alpha*p^r]\]
-  To verify for that it is indeed an inverse we can check
-  \[ \phi\circ\phi^{-1}([\alpha])=[p^r*p*\alpha*p^r*p]=[\alpha]\]
+  Let $p$ be a path from $x_0$ to $x_1$ and let $p^r(t)=p(1-t)$. Then define
+  two functions $\varphi:\pi_1(X,x_0)\rightarrow\pi_1(X,x_1)$ and
+  $\psi:\pi_1(X,x_1)\rightarrow\pi_1(X,x_0)$ as
+  \[ \varphi([\alpha])=[p^r*\alpha*p]\]
   and
-  \[ \phi^{-1}\circ\phi([\alpha])=[p*p^r*\alpha*p*p^r]=[\alpha]\].
-  Therefore $\phi$ is a bijection.
+  \[ \psi([\alpha])=[p*\alpha*p^r] \]
+  Then to show that $\varphi$ is a bijection we check that they are inverses.
+  \[ \varphi\circ\psi([\alpha])=[p^r*p*\alpha*p^r*p]=[p^r*p]*[\alpha]*[p^r*p]=
+    [e_{x_1}]*[\alpha]*[e_{x_1}]=[\alpha]\]
+  and
+  \[ \psi\circ\varphi([\alpha])=[p*p^r*\alpha*p*p^r]=[p*p^r]*[\alpha]*[p*p^r]=
+    [e_{x_0}]*[\alpha]*[e_{x_0}]=[\alpha]\]
 
-  To show that $\phi$ is a homomorphism we will show that $\phi([\alpha])*\phi([\beta])=
-  \phi([\alpha]*[\beta])$ via
-  \[ \phi([\alpha])*\phi([\beta])=[p^r*\alpha*p]*[p^r\beta*p] =
-    [p^r*\alpha*p*p^r*\beta*p]=[p^r\alpha*\beta*p]=\phi([\alpha*\beta])=
-    \phi([\alpha]*[\beta])\]
-  Since $\phi$ preserves the group operation it is indeed a homomorphism and thus
-  and isomorphism.
+  To show that it preserves the group structure we start with
+  \[ \varphi([\alpha])*\varphi([\beta])=[p^r*\alpha*p]*[p^r*\beta*p]=
+    [p^r*\alpha*p*p^r*\beta*p]=[p^r*\alpha]*[e_{x_0}]*[\beta*p]\]
+  At this point we have a constant map in the middle which is homotopic to the
+  same path without. So we get
+  \[ [p^r*\alpha]*[\beta*p]=[p^r*\alpha*\beta*p]=\varphi([\alpha*\beta]
+    =\varphi([\alpha]*[\beta]))\]
+  Since $\varphi$ is a bijection and preserves the group structure it is
+  an isomorphism.
 
-  Therefore if $x_0,x_1$ are in the same path component of a space $X$ then
+  Therefore if $x_1,x_1$ are in the same path component of a space $X$, then
   $\pi_1(X,x_0)\simeq\pi_1(X,x_1)$.
 \end{proof}
 
