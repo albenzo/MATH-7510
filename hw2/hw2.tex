@@ -25,6 +25,47 @@
 
 \begin{problem}
   
+\end{problem} %1
+
+\begin{proof}
+  Let $X$ be a space such that all paths having the same endpoints are fixed-endpoint
+  homotopic. Then given a loop $\alpha$ based as some point $x_0$ this loop is homotopic
+  to the constant map at $x_0$ which implies that $\pi_1(X,x_0)$ is trivial for all
+  $X$. Therefore $X$ is simply connected.
+
+  Now suppose that $X$ is a simply connected space. Let $\alpha,\beta$ be loops from $x_0$ to
+  $x_1$. For a fixed $t'\in [0,1]$ using path connectedness we can construct a loop
+  $l_{t'}$ such that $l_{t'}(0)=l_{t'}(1)=\alpha(t')$, $l_{t'}(\frac{1}{2})=\beta(t)$ and
+  that the function $p(t)=l_{t}(\frac{1}{2})$ is a path \textbf{Why?}.
+  Since $X$ is simply connected there is a homotopy $L_{t'}$ from $l_{t'}$ to the
+  constant map at $\alpha(t')$. Then we can construct a homotopy $H$ from $\beta$ to $\alpha$ as
+  \[ H(t,s)= L_t(\frac{1}{2},s) \]
+  which will be continuous because of the continuity of the $L_{t'}$s and that
+  we choose $l_{t'}$ such that as we vary over $t$ there is a path.
+
+  Therefore a space $X$ is simply connected if and only if all paths with the same
+  endpoints are fixed endpoint homotopic.
+\end{proof}
+
+\sk
+
+\begin{problem} %2
+  
+\end{problem}
+
+\begin{proof}
+  Let $f:(X,x_0)\rightarrow (Y,y_0)$ and $g:(Y,y_0)\rightarrow (Z,z_0)$. For a continuous map
+  $h$ we have $h_*$ defined as $h_*([\gamma])=[h\circ \gamma]$. Then if we consider
+  $(g\circ f)_*$:
+  \[ (g\circ f)_*([\gamma]) = [(g\circ f)\circ \gamma] = [g\circ (f\circ \gamma)] = g_*([f\circ\gamma])=g_*\circ f_*([\gamma])\]
+
+  Therefore $(g\circ f)_*=g_*\circ f_*$.
+\end{proof}
+
+\sk
+
+\begin{problem} %3
+  
 \end{problem}
 
 \begin{proof}
@@ -33,7 +74,7 @@
 
 \sk
 
-\begin{problem}
+\begin{problem} %4
   
 \end{problem}
 
@@ -43,7 +84,7 @@
 
 \sk
 
-\begin{problem}
+\begin{problem} %5
   
 \end{problem}
 
@@ -53,27 +94,7 @@
 
 \sk
 
-\begin{problem}
-  
-\end{problem}
-
-\begin{proof}
-  
-\end{proof}
-
-\sk
-
-\begin{problem}
-  
-\end{problem}
-
-\begin{proof}
-  
-\end{proof}
-
-\sk
-
-\begin{problem}
+\begin{problem} %6
   
 \end{problem}
 
@@ -83,3 +104,4 @@
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
+
