@@ -33,21 +33,15 @@
   to the constant map at $x_0$ which implies that $\pi_1(X,x_0)$ is trivial for all
   $X$. Therefore $X$ is simply connected.
 
-  Now suppose that $X$ is a simply connected space. Let $\alpha,\beta$ be loops from $x_0$ to
-  $x_1$. For a fixed $t'\in [0,1]$ using path connectedness we can construct a loop
-  $l_{t'}$ such that $l_{t'}(0)=l_{t'}(1)=\alpha(t')$, $l_{t'}(\frac{1}{2})=\beta(t)$ and
-  that the function $p(t)=l_{t}(\frac{1}{2})$ is a path.
-  If we had two loops that separated t
+  Now suppose that $X$ is simply connected and let $\alpha,\beta$ be paths from the point $x_0$
+  to $x_1$. Consider the path $\alpha*\beta^{-1}*\beta$. Since $\alpha*\beta^{-1}$ is a loop based at $x_0$
+  it is homotopic to the constant map at $x_0$. This implies that
+  $\alpha*\beta^{-1}*\beta$ is homotopic to $c_{x_0}*\beta\sim \beta$. Now if we look at $\beta^{-1}*\beta$ this is
+  homotopic to the constant path based at $x_1$ and by the same reasoning
+  $\alpha*\beta^{-1}*\beta\sim \alpha$. By transitivity this implies that $\alpha\sim \beta$.
 
-
-  Since $X$ is simply connected there is a homotopy $L_{t'}$ from $l_{t'}$ to the
-  constant map at $\alpha(t')$. Then we can construct a homotopy $H$ from $\beta$ to $\alpha$ as
-  \[ H(t,s)= L_t(\frac{1}{2},s) \]
-  which will be continuous because of the continuity of the $L_{t'}$s and that
-  we choose $l_{t'}$ such that as we vary over $t$ there is a path.
-
-  Therefore a space $X$ is simply connected if and only if all paths with the same
-  endpoints are fixed endpoint homotopic.
+  Therefore a space $X$ is simply connected if and only if all paths are fixed
+  endpoint homotopic.
 \end{proof}
 
 \sk
@@ -72,7 +66,33 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $p:E\rightarrow B$ be a covering map with $p(e_0)=b_0$. Let $F:[0,1]^2\rightarrow B$ be continuous
+  with $F(0,0)=b_0$. For each point $b\in B$ let $U_b$ be an open neighborhood of $b$ such
+  that the preimage under $p$ is the union of disjoint open sets homeomorphic to $U_b$. 
+  Then $\{F^{-1}(U_b)\}$ is an open cover of $I^2$. Let $\{F^{-1}(U_\beta)\}$ be a finite subcover
+  of $\{F^{-1}(U_b)\}$. Choose a $U_\beta$ that contains $b_0$. Then for
+  $p^{-1}(U_\beta)=\coprod V_\alpha$ choose the $V_{\alpha'}$ containing $e_0$ and define
+  $\tilde{F}:F^{-1}(U_\beta)\rightarrow E$ as equivalent to $F|_{F^{-1}(U_\beta)}$ as $V_{\alpha'}$ is homeomorphic
+  to $U_\beta$.
+
+  Then for each $\gamma$ such that $F^{-1}(U_\gamma)\cap F^{-1}(U_\beta)\neq \phi$  pick the $V_{\gamma'}$ from
+  $p^{-1}(U_\gamma)=\coprod_\gamma V_\gamma$ such that $V_{\gamma'}\cap V_{\alpha'}\neq \phi$. Define $\tilde{F}:F^{-1}(U_\gamma)\rightarrow E$ in
+  the same way as before such that the $\tilde{F}$s agree on the common components of their
+  image. Then repeat this process for all $U_\beta$ in our finite subcover.
+  Since we have a finite number of $\tilde{F}$s and they are defined to be equal on
+  the common pieces on their image we can create $\tilde{F}:I^2\rightarrow E$ using the pasting
+  lemma such that $p\circ \tilde{F}=F$. As there was only one choice to make at any given
+  point of the construction this lift is unique.
+
+  If $F$ is a fixed endpoint homotopy then $F|_{[0,1]\times [0]}$ and $F|_{[0,1]\times [1]}$
+  are constant paths that lift to constant paths in $E$. If we define $\tilde{F}$
+  as above then the restrictions applied to $\tilde{F}$ will also create constant
+  paths since $p\circ\tilde{F}=F$ and there is no way to jump to another element
+  of $p^{-1}(b_0)$.
+
+  Therefore if $p:E\rightarrow B$ is a covering map and $F:[0,1]^2\rightarrow B$ is a homotopy then
+  there exists a lift $\tilde{F}:[0,1]^2\rightarrow E$ where if $F$ is fixed endpoint homotopic
+  then so is $\tilde{F}$.
 \end{proof}
 
 \sk
@@ -82,7 +102,20 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $E$ be a pointed space, $B$ a connected pointed space, $p:E\rightarrow B$ a covering map,
+  and let $|p^{-1}(b)|=n$.
+  Define $X_n:=\{b\in B||p^{-1}(b)|=n\}$. Let $x$ be a point in $X_n$ and let $U_x$ be
+  an open neighborhood of $x$. Then the preimage $p^{-1}(U_x)$ is $\coprod_{k=1}^nV_k$
+  which implies that all other points in $U_x$ are in $X_n$. It then follows that
+  $U_x\subset X_n$. Since we did this for an arbitrary point of $X_n$ this implies that
+  all points of $X_n$ are interior and as such $X_n$ is open. Then we can express
+  $X$ as
+  \[ X=\bigcup_nX_n\] where $X_i\cap X_j=\phi$ if $i\neq j$. If there were two or more values for
+  which $X_n$ was nonempty this would form a partition of $B$ contradicting the assumption
+  that the space is connected.
+
+  Therefore if $p:E\rightarrow B$ is a covering map, $B$ is connected and if there exists
+  a $b\in B$ such that $|p^{-1}(b)|=n$ then $|p^{-1}(b')|=n$ for all $b'\in B$.
 \end{proof}
 
 \sk
