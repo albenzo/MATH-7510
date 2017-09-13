@@ -36,7 +36,10 @@
   Now suppose that $X$ is a simply connected space. Let $\alpha,\beta$ be loops from $x_0$ to
   $x_1$. For a fixed $t'\in [0,1]$ using path connectedness we can construct a loop
   $l_{t'}$ such that $l_{t'}(0)=l_{t'}(1)=\alpha(t')$, $l_{t'}(\frac{1}{2})=\beta(t)$ and
-  that the function $p(t)=l_{t}(\frac{1}{2})$ is a path \textbf{Why?}.
+  that the function $p(t)=l_{t}(\frac{1}{2})$ is a path.
+  If we had two loops that separated t
+
+
   Since $X$ is simply connected there is a homotopy $L_{t'}$ from $l_{t'}$ to the
   constant map at $\alpha(t')$. Then we can construct a homotopy $H$ from $\beta$ to $\alpha$ as
   \[ H(t,s)= L_t(\frac{1}{2},s) \]
@@ -57,7 +60,7 @@
   Let $f:(X,x_0)\rightarrow (Y,y_0)$ and $g:(Y,y_0)\rightarrow (Z,z_0)$. For a continuous map
   $h$ we have $h_*$ defined as $h_*([\gamma])=[h\circ \gamma]$. Then if we consider
   $(g\circ f)_*$:
-  \[ (g\circ f)_*([\gamma]) = [(g\circ f)\circ \gamma] = [g\circ (f\circ \gamma)] = g_*([f\circ\gamma])=g_*\circ f_*([\gamma])\]
+  \[ (g\circ f)_*([\gamma]) = [(g\circ f)\circ \gamma] = [g\circ (f\circ \gamma)] = g_*([f\circ \gamma])=g_*\circ f_*([\gamma])\]
 
   Therefore $(g\circ f)_*=g_*\circ f_*$.
 \end{proof}
@@ -89,7 +92,16 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $B$ be simply connected, $E$ path connected, and $p:E\rightarrow B$ a covering map.
+  By the Theorem from class since $E$ is path connected there exists a
+  surjective map $\phi:\pi_1(B,b_0)\rightarrow p^{-1}(b_0)$. However since $B$ is simply connected
+  the fundamental group is trivial which implies that $p^{-1}(b_0)$ has only one
+  element. Since $B$ is simply connected it is also connected so it follows that
+  $p^{-1}(b)$ contains only a single element for all $b\in B$. As there is only one
+  copy of $B$ in $E$ this implies that $p|_E=p$ and as such $p$ is a homeomorphism.
+
+  Therefore if $B$ is simply connected, then any covering map for which $E$ is
+  path connected is a homeomorphism.
 \end{proof}
 
 \sk
@@ -99,7 +111,16 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $h:(X,x_0)\rightarrow (Y,y_0)$ be an inessential map and let $[\gamma]\in \pi(X,x_0)$.
+  Since $h$ is inessential it follows that there is a homotopy $H$ that
+  sends $h$ to the constant map at $y_0$. If we take $h_*([\gamma])=[h\circ\gamma]$
+  then we can create a homotopy $H'(t,s)=H(\gamma(t),s)$ that will take $\gamma$
+  to the constant map which implies that d $h_*([\gamma])=[y_0]$. Since
+  this happens for an arbitrary loop in $\pi_1(X,x_0)$ it follows that
+  the map $h_*$ is trivial.
+
+  Therefore if $h:(X,x_0)\rightarrow (Y,y_0)$ is inessential then the induced homomorphism
+  $h_*$ is trivial.
 \end{proof}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
