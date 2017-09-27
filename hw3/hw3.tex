@@ -36,7 +36,27 @@
 \end{problem}
 
 \begin{proof}
-  
+  Start with $\langle a,b| a^4=1,b^2=1,bab^{-1}=a^{-1}\rangle$. Then the elements of this group
+  are
+  \[ e,a,a^2,a^3,b,ba^2,ba^3,ab,a^2b,a^3b,bab,aba,\ldots \]
+  However using the relations above $bab=bab^{-1}=a^{-1}$ and similarly
+  we also have $aba=b$. In addition we have $b=b^{-1}$ and as such $ba=a^{-1}b$
+  which implies that $ba^i=a^{-i}b$ collapsing more elements until we are left with
+  \[ e,a,a^2,a^3,b,ba,ba^2,ba^3 \]
+  showing that the group is of order 8.
+
+  Now consider the symmetries of a square with vertices labeled clockwise $1,2,3,4$.
+  Then the symmetries consist of 8 permutations
+  \[ e,(1\ 2\ 3\ 4),(1\ 4)(2\ 3),(4\ 3\ 2\ 1),(1\ 2)(3\ 4),(2\ 4),(1\ 4)(2\ 3),(1\ 3)\]
+  Define $\rho:=(1\ 2\ 3\ 4)$ and $r:=(1\ 2)(3\ 4)$. It can be seen that $\rho$ and $r$
+  generate the others. Note that since $\rho$ is a 4-cycle and
+  $r$ is a product of disjoint transpositions that $\rho^4=e$ and $r^2=1$.
+  In addition if we consider $r\rho r^{-1}$ we have
+  \[ r\rho r^{-1}=(1\ 2)(3\ 4)(1\ 2\ 3\ 4)(1\ 2)(3\ 4)=(4\ 3\ 2\ 1)=\rho^{-1}\]
+  Since there are eight permutations of the square and their generators fulfill the
+  same relations we can conclude that
+  $( a,b| a^4=1,b^2=1,bab^{-1}=a^{-1})$ is isomorphic to the group of symmetries of the
+  square.
 \end{proof}
 
 \sk
@@ -46,7 +66,31 @@
 \end{problem}
 
 \begin{proof}
-  
+  Define a map $\varphi:G\rightarrow H$ by
+  \[ \varphi(a)=xyx,\quad \varphi(b)=xy\]
+  and define $\varphi$ for the rest of the elements by concatenation.
+
+  We will show it is a homomorphism by showing that it preserves the relation
+  $a^2=b^3$.
+  \begin{align*}
+    \varphi(a)^2&= xyxxyx\\
+         &= xyxyxy\\
+         &= (xy)^3\\
+         &= \varphi(b)^3
+  \end{align*}
+  proving that $\varphi$ is a homomorphism.
+
+  Now we will show that $\varphi(a)$ and $\varphi(b)$ are also generators of $H$. This
+  will allow us to define $\varphi^{-1}$ by simply reversing the map which will
+  show that $\varphi$ is an isomorphism.
+
+  For $x$ we have
+  \[ y = y^{-1}x^{-1}xyx = (xy)^{-1}xyx = \varphi(b)^{-1}\varphi(a)\]
+  Then for $y$ it is
+  \[ y = yxyy^{-1}x^{-1}=xyx(xy)^{-1} =\varphi(a)\varphi(b)^{-1}\]
+  which shows that $\varphi$ is an isomorphism.
+
+  Therefore the groups $G$ and $H$ are isomorphic.
 \end{proof}
 
 \sk
@@ -56,7 +100,44 @@
 \end{problem}
 
 \begin{proof}
-  
+  \textbf{Insert diagram of Klein Bottle decomposition and generators.}
+
+  We will show that the fundamental of the Klein bottle $\pi_1(K,*)$ is
+  isomorphic to $\langle a,b|aba^{-1}b=1\rangle$. First as above we decompose
+  $K$ into $U,V$ such that both $U,V$ and $U\cap V$ are M\"obius strips.
+  The M\"obius strip is homotopy equivalent to a circle. Therefore
+  the fundamental groups of $U,V$ and $U\cap V$ are
+  \[ \pi_1(U,*)\cong \pi_1(V,*)\cong \pi_1(U\cap V,*)\cong \pi_1(S^1,*)\cong\bb{Z}\]
+
+  Next we examine the generators for each of the fundamental groups. The generators
+  for $\pi_1(U,*),\pi_1(V,*),$ and $\pi_1(U\cap V,*)$ are $[\alpha],[\beta],$ and $[\gamma]$ respectively.
+  Take the inclusion maps $i:U\cap V\rightarrow U$ and $j:U\cap V \rightarrow V$. Then
+  $i_*([\gamma])=[\alpha]^2$ and similarly $j_*([\gamma])=[\beta]^2$. We can see this because if we were
+  to project $\gamma$ and $\alpha$ (or $\beta$) onto a circle we would have $\gamma$ go around twice as
+  many times as $\alpha$. Then by the Seifert-van Kampen Theorem we have
+  $\pi_1(K,*)=\langle [\alpha],[\beta] | i_*([\gamma])j_8([\gamma])^{-1}=1 \rangle\cong \langle x,y| x^2=y^2\rangle$.
+
+  Now we will show that $\langle x,y| x^2=y^2\rangle\cong \langle a,b|aba^{-1}b=1\rangle$. First note that we
+  can rewrite $aba^{-1}b=1$ as $bab=a$ via
+  \[ aba^{-1}=b^{-1}\Rightarrow ab=b^{-1}a\Rightarrow bab=a \]
+  Define a map $\varphi$ such that
+  \[ \varphi(x)=ba,\quad \varphi(y)=a\]
+  where we define $\varphi$ on other elements by concatenation.
+  Then we can show that $\varphi$ is a homomorphism by showing it preserves the relation
+  $x^2=y^2$ via
+  \begin{align*}
+    \varphi(x)^2 &= baba\\
+          &= a^2\\
+          &= \varphi(y)^2
+  \end{align*}
+
+  Next we will show that we can reach both generators $a,b$ which from the same reasoning
+  as $3$ will show that $\varphi$ is an isomorphism. We can express $a$ immediately
+  as $\varphi(y)=a$. For $b$ we have $\varphi(x)\varphi(y)^{-1}=baa^{-1}=a$. It then follows that $\varphi$
+  is an isomorphism.
+
+  Therefore the fundamental group of the Klein bottle has presentation
+  $\langle a,b|aba^{-1}b=1\rangle$.
 \end{proof}
 
 \sk
@@ -66,7 +147,14 @@
 \end{problem}
 
 \begin{proof}
-  
+  \begin{itemize}
+  \item[a)] \textbf{Place diagram here}. 
+  \item[b)] Since the presentation will consist solely of relations of the
+    form $x_ix_jx_i^{-1}=x_k$ the Abelianization of the group would reduce
+    to $x_j=x_k$. Since this is a knot we would force every generator to be
+    equal and remove all relations causing it to become the free group on one
+    generator $\bb{Z}$.
+  \end{itemize}
 \end{proof}
 
 \sk
@@ -76,7 +164,31 @@
 \end{problem}
 
 \begin{proof}
-  
+  \textbf{Insert picture of labeled trefoil here}.
+
+  Using Problem $5$ we can deduce that the presentation of the group is
+  $\langle a,b,c | aba^{-1}=c,bcb^{-1}=a,cac^{-1}=b\rangle$. However we can simplify this
+  presentation by plugging the first relation into the latter two to get
+  \begin{align*}
+    bcb^{-1} &= a\\
+    baba^{-1}b^{-1} &= a \\
+    bab &= aba
+  \end{align*}
+  and similarly
+  \begin{align*}
+    cac^{-1} &= b\\
+    aba^{-1}aab^{-1}a^{-1} &= b \\
+    abab^{-1}a^{-1} &= b\\
+    aba = bab
+  \end{align*}
+  Since we get the same relation and have removed all instances of the generator
+  $c$ we can safely trim down our original presentation to
+  $\langle a,b| aba=bab\rangle$.
+
+  Therefore the fundamental group of the trefoil knot is isomorphic to
+  $\langle x,y| xyx=yxy\rangle$. Moreover this group is not Abelian as
+  $xy = yxyx^{-1}$. It then follows that the trefoil knot is not equivalent to the
+  unknot as the fundamental group of the unknot is Abelian.
 \end{proof}
 
 \sk
