@@ -29,6 +29,9 @@
 
 \[\langle a,b,c | a^2,b^2,c^2,(ab)^3,(ac)^3 \rangle\]
 
+We can identify $a$ with $(1\ 2)$, $b$ with $(2\ 3)$, and
+$c$ with $(1\ 3)$.
+
 \sk
 
 \begin{problem} %2
@@ -68,7 +71,7 @@
 \begin{proof}
   Define a map $\varphi:G\rightarrow H$ by
   \[ \varphi(a)=xyx,\quad \varphi(b)=xy\]
-  and define $\varphi$ for the rest of the elements by concatenation.
+  and define $\varphi$ for the rest of the elements of $G$ by concatenation.
 
   We will show it is a homomorphism by showing that it preserves the relation
   $a^2=b^3$.
@@ -103,10 +106,10 @@
   \textbf{Insert diagram of Klein Bottle decomposition and generators.}
 
   We will show that the fundamental of the Klein bottle $\pi_1(K,*)$ is
-  isomorphic to $\langle a,b|aba^{-1}b=1\rangle$. First as above we decompose
+  isomorphic to \\$\langle a,b|aba^{-1}b=1\rangle$. First as above we decompose
   $K$ into $U,V$ such that both $U,V$ and $U\cap V$ are M\"obius strips.
-  The M\"obius strip is homotopy equivalent to a circle. Therefore
-  the fundamental groups of $U,V$ and $U\cap V$ are
+  The M\"obius strips are each homotopy equivalent to a circle. Therefore
+  the fundamental groups of $U,V,$ and $U\cap V$ are
   \[ \pi_1(U,*)\cong \pi_1(V,*)\cong \pi_1(U\cap V,*)\cong \pi_1(S^1,*)\cong\bb{Z}\]
 
   Next we examine the generators for each of the fundamental groups. The generators
@@ -132,7 +135,7 @@
   \end{align*}
 
   Next we will show that we can reach both generators $a,b$ which from the same reasoning
-  as $3$ will show that $\varphi$ is an isomorphism. We can express $a$ immediately
+  as problem $3$ will show that $\varphi$ is an isomorphism. We can express $a$ immediately
   as $\varphi(y)=a$. For $b$ we have $\varphi(x)\varphi(y)^{-1}=baa^{-1}=a$. It then follows that $\varphi$
   is an isomorphism.
 
@@ -148,12 +151,21 @@
 
 \begin{proof}
   \begin{itemize}
-  \item[a)] \textbf{Place diagram here}. 
+  \item[a)] First we look at the space $T$ with the $R$s attached. Going along
+    $T$ and passing through $R_n$ to return to the basepoint we will refer
+    to as the generator $x_n$. For each arc $\alpha_i$ there will be a
+    corresponding generator $x_i$. Given a crossing we can frame it as in
+    the drawing above. Then if we loop around $x_i$ with the orientation
+    listed followed by $x_j,x_i^{-1},$ and then $x_k^{-1}$ we can pull
+    the loop back to the identity obtaining the relation $x_ix_jx_i^{-1}x_k^{-1}=1$.
+    This can be rewritten as $x_ix_jx_i^{-1}=x_k$. Then the presentation
+    of $\pi_1(\bb{R}^3\setminus K)\cong\langle x_1,\ldots,x_m|x_ix_jx_i^{-1}=x_k \text{\ for each crossing}\rangle$
   \item[b)] Since the presentation will consist solely of relations of the
     form $x_ix_jx_i^{-1}=x_k$ the Abelianization of the group would reduce
-    to $x_j=x_k$. Since this is a knot we would force every generator to be
-    equal and remove all relations causing it to become the free group on one
-    generator $\bb{Z}$.
+    the relations to the form $x_j=x_k$. However since $K$ is a knot each
+    arc distinct arc will be related to each other either directly or
+    transitively. This means that all generators will be equivalent leaving
+    us with $\bb{Z}$ as the Abelianization of $\pi_1(\bb{R}^3\setminus K)$.
   \end{itemize}
 \end{proof}
 
