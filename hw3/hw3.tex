@@ -6,6 +6,9 @@
 \usepackage{amsthm}
 \usepackage{listings}
 \usepackage{enumerate}
+\usepackage{graphicx}
+
+\graphicspath{{images/}}
 
 \textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
 
@@ -27,7 +30,7 @@
   
 \end{problem}
 
-\[\langle a,b,c | a^2,b^2,c^2,(ab)^3,(ac)^3 \rangle\]
+\[S_3 \cong \langle a,b,c | a^2,b^2,c^2,(ab)^3,(ac)^3 \rangle\]
 
 We can identify $a$ with $(1\ 2)$, $b$ with $(2\ 3)$, and
 $c$ with $(1\ 3)$.
@@ -91,7 +94,11 @@ $c$ with $(1\ 3)$.
   \[ y = y^{-1}x^{-1}xyx = (xy)^{-1}xyx = \varphi(b)^{-1}\varphi(a)\]
   Then for $y$ it is
   \[ y = yxyy^{-1}x^{-1}=xyx(xy)^{-1} =\varphi(a)\varphi(b)^{-1}\]
-  which shows that $\varphi$ is an isomorphism.
+  Since we can reach the generators of $H$ from $\varphi(a)$
+  and $\varphi(b)$ they are also generators of $H$. 
+  Therefore there is a well-defined
+  inverse $\varphi^{-1}$ by reversing the map which shows
+  that $\varphi$ is an isomorphism.
 
   Therefore the groups $G$ and $H$ are isomorphic.
 \end{proof}
@@ -103,11 +110,13 @@ $c$ with $(1\ 3)$.
 \end{problem}
 
 \begin{proof}
-  \textbf{Insert diagram of Klein Bottle decomposition and generators.}
+  \includegraphics[scale=.5]{klein}
 
   We will show that the fundamental of the Klein bottle $\pi_1(K,*)$ is
   isomorphic to \\$\langle a,b|aba^{-1}b=1\rangle$. First as above we decompose
-  $K$ into $U,V$ such that both $U,V$ and $U\cap V$ are M\"obius strips.
+  $K$ into $U$ and $V$ where $U$ lies in the center between the dashed dotted lines
+  and $V$ lies on the outer edges between the dotted lines. Then
+  $U,V$ and $U\cap V$ can be seen to be M\"obius strips.
   The M\"obius strips are each homotopy equivalent to a circle. Therefore
   the fundamental groups of $U,V,$ and $U\cap V$ are
   \[ \pi_1(U,*)\cong \pi_1(V,*)\cong \pi_1(U\cap V,*)\cong \pi_1(S^1,*)\cong\bb{Z}\]
@@ -118,7 +127,7 @@ $c$ with $(1\ 3)$.
   $i_*([\gamma])=[\alpha]^2$ and similarly $j_*([\gamma])=[\beta]^2$. We can see this because if we were
   to project $\gamma$ and $\alpha$ (or $\beta$) onto a circle we would have $\gamma$ go around twice as
   many times as $\alpha$. Then by the Seifert-van Kampen Theorem we have
-  $\pi_1(K,*)=\langle [\alpha],[\beta] | i_*([\gamma])j_8([\gamma])^{-1}=1 \rangle\cong \langle x,y| x^2=y^2\rangle$.
+  \[\pi_1(K,*)=\langle [\alpha],[\beta] | i_*([\gamma])j_8([\gamma])^{-1}=1 \rangle\cong\langle [\alpha],[\beta]|[\alpha]^2[\beta]^{-2}=1\rangle \cong \langle x,y| x^2=y^2\rangle\]
 
   Now we will show that $\langle x,y| x^2=y^2\rangle\cong \langle a,b|aba^{-1}b=1\rangle$. First note that we
   can rewrite $aba^{-1}b=1$ as $bab=a$ via
@@ -149,22 +158,26 @@ $c$ with $(1\ 3)$.
   
 \end{problem}
 
+\includegraphics[scale=.5]{wirt}
+
 \begin{proof}
   \begin{itemize}
-  \item[a)] First we look at the space $T$ with the $R$s attached. Going along
-    $T$ and passing through $R_n$ to return to the basepoint we will refer
-    to as the generator $x_n$. For each arc $\alpha_i$ there will be a
+  \item[a)]
+    First we look at the space $T$ with the $R$s attached. Going along
+    $T$ and passing through $R_n$ to return to the basepoint is a generator
+    which we will call $x_n$. For each arc $\alpha_i$ there will be a
     corresponding generator $x_i$. Given a crossing we can frame it as in
-    the drawing above. Then if we loop around $x_i$ with the orientation
+    the drawing above. Then if we go along the loop $x_i$ with the orientation
     listed followed by $x_j,x_i^{-1},$ and then $x_k^{-1}$ we can pull
-    the loop back to the identity obtaining the relation $x_ix_jx_i^{-1}x_k^{-1}=1$.
+    the loop back to the constant loop obtaining the relation $x_ix_jx_i^{-1}x_k^{-1}=1$.
     This can be rewritten as $x_ix_jx_i^{-1}=x_k$. Then the presentation
     of $\pi_1(\bb{R}^3\setminus K)\cong\langle x_1,\ldots,x_m|x_ix_jx_i^{-1}=x_k \text{\ for each crossing}\rangle$
+    where $m$ is the number of crossings.
   \item[b)] Since the presentation will consist solely of relations of the
     form $x_ix_jx_i^{-1}=x_k$ the Abelianization of the group would reduce
-    the relations to the form $x_j=x_k$. However since $K$ is a knot each
-    arc distinct arc will be related to each other either directly or
-    transitively. This means that all generators will be equivalent leaving
+    all such relations to the form $x_ix_i^{-1}x_j=x_jx_k$. However since $K$ is a knot each
+    distinct arc will be related to each other either directly or through
+    transitivity. This means that all generators will be equivalent leaving
     us with $\bb{Z}$ as the Abelianization of $\pi_1(\bb{R}^3\setminus K)$.
   \end{itemize}
 \end{proof}
@@ -176,10 +189,11 @@ $c$ with $(1\ 3)$.
 \end{problem}
 
 \begin{proof}
-  \textbf{Insert picture of labeled trefoil here}.
+  \includegraphics[scale=.2]{trefoil}
 
   Using Problem $5$ we can deduce that the presentation of the group is
-  $\langle a,b,c | aba^{-1}=c,bcb^{-1}=a,cac^{-1}=b\rangle$. However we can simplify this
+  \[\langle a,b,c | aba^{-1}=c,bcb^{-1}=a,cac^{-1}=b\rangle\]
+  However we can simplify this
   presentation by plugging the first relation into the latter two to get
   \begin{align*}
     bcb^{-1} &= a\\
