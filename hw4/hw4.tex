@@ -1,0 +1,199 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem} %1
+  
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem} %2
+  
+\end{problem}
+
+\begin{proof}
+  Let $p:E\rightarrow B$ be a covering map where both $B$ and $E$ are path connected.
+  Now suppose that the cover is normal. Then consider a loop $\alpha$ in $B$.
+  Since $E$ is a normal covering space for any $e\in p^{-1}(b_0)$ there
+  is a homeomorphism such that $h(e_0)=e$ and that $p\circ h=p$. Then
+  if we consider a lift $\alpha$ to $\widetilde{\alpha}$ in $E$ it will either
+  lift to a loop or a path uniquely. If we apply $h$ to $\widetilde{\alpha}$
+  then we have $h\circ\widetilde{\alpha}$ as a loop or path based at $e$ however
+  since lifts are unique this is precisely the lift of $\alpha$ to the
+  covering space when the basepoint is shifted. Since the cover is
+  normal we can do this for all basepoints. Therefore all lifts
+  of $\alpha$ are either loops or paths.
+
+  Otherwise suppose that given a loop in $B$ either all of its lifts
+  are loops or none of them are loops. Then consider $[\alpha]\in\pi_1(B,b_0)$ and
+  $[\gamma]\in p_*(\pi_1(E,e_0))$. Then consider the lift of $\alpha*\gamma*\alpha^{-1}$. If
+  $\alpha$ lifts to a loop then $\alpha*\gamma*\alpha^{-1}$ will lift to a loop which
+  implies that $[\alpha*\gamma*\alpha^{-1}]\in p_*(\pi_1(E,e_0))$. Otherwise
+  if $\alpha^{-1}$ lifts to a path then so does $\alpha$. The path
+  $\widetilde{\alpha}$ will go to some other point $e\in p^{-1}(b_0)$. Since
+  $\gamma$ lifts to a loop at $e_0$ it will also lift to a loop based at $e$ which
+  after concatenating the lift of $\alpha^{-1}$ we get back to $e_0$ which shows
+  that $\alpha*\gamma*\alpha^{-1}$ lifts to a loop and therefore $[\alpha*\gamma*\alpha^{-1}]\in p_*(\pi_1(E,e_0))$.
+
+  Therefore a covering is normal if and only if for each loop in $B$,
+  either all its lifts are loops or none of them are loops.
+\end{proof}
+
+\sk
+
+\begin{problem} %3
+  
+\end{problem}
+
+\begin{proof}
+  
+\end{proof}
+
+\sk
+
+\begin{problem} %4
+  
+\end{problem}
+
+\begin{proof}
+  Let $\Sigma_n$ and $\Sigma_m$ be closed surfaces of genus $n$ and $m$
+  respectively. Suppose that $m=n$. Then we can express
+  both surfaces as a polygons with $4n$ sides glued together.
+  However this would mean that $\chi(\Sigma_n)=\chi(\Sigma_m)$ which by
+  Problem $1$ means that they are a 1 sheeted covering
+  spaces of each other and as such $\Sigma_n\cong \Sigma_m$.
+
+  Otherwise suppose that $\Sigma_m\cong\Sigma_n$. Then any cell complex
+  for $\Sigma_m$ would also be one for $\Sigma_n$ and vice versa.
+  Since $\Sigma_m$ is of genus $m$ it has a cell complex
+  with $4m$ sides. Since this is also a cell complex
+  for $\Sigma_n$ we know that $n\leq m$. However by the same
+  reasoning we can show that $m\leq n$ implying that
+  $n=m$.
+
+  Therefore $\Sigma_n\cong\Sigma_m$ if and only if $m=n$.
+\end{proof}
+
+\sk
+
+\begin{problem} %5
+  
+\end{problem}
+
+\begin{proof}
+  Let $p:E\rightarrow B$ be a covering map with $B$ and $E$ both path connected. Now
+  suppose that the group of Deck transformations acts transitively
+  on the set of points which lie over any single point in $B$. Then
+  it acts transitively on $p^{-1}(b_0)$ which implies that the
+  cover is normal.
+
+  Otherwise suppose that $E$ is a normal cover. Then the group of Deck
+  transformations acts transitively on the basepoint. As
+  $B$ is path connected for any point $b\in B$ there is
+  an isomorphism  $\varphi:\pi_1(B,b_0)\rightarrow \pi_1(B,b)$ made by going along
+  a path $\gamma$ from $b$ to $b_0$ and back. This path has a lift
+  $\widetilde{\gamma}$ which gives rise to an isomorphism from
+  $\pi_1(E,e_0)$ to $\pi_1(E,e)$ where $e\in p^{-1}(b)$. Then we
+  have $(E,e)$ as a covering space for $(B,b)$ with the
+  same map and then $p_*(\pi_1(E,e))$ will be normal in
+  $\pi_1(B,b)$. Thus the group of Deck transformations will
+  act transitively on $p^{-1}(b)$ and since this was for
+  an arbitrary point it holds for all points $b\in B$.
+
+  Therefore a cover is normal if and only if the group of
+  Deck transformations acts transitively on the set of points
+  in $E$ which lie over any single point in $B$.
+\end{proof}
+
+\sk
+
+\begin{problem} %6
+  
+\end{problem}
+
+Using the Seifert van Kampen theorem we can compute that the
+fundamental group of $\bb{R}P^2\vee \bb{R}P^2$ is
+\[ \pi_1(\bb{R}P^2\vee \bb{R}P^2,*)\cong \langle a,b|a^2,b^2\rangle\]
+The subgroups for this group are:
+\begin{itemize}
+\item $\langle e\rangle$
+\item $\langle a\rangle$
+\item $\langle b\rangle$
+\item $\langle (ab)^n\rangle$ for all $n\in \bb{N}$
+\item $\langle a,b|a^2,b^2\rangle$
+\end{itemize}
+
+The covering spaces, with pictures below, that correspond to having
+the above group of Deck transformations are:
+
+\begin{itemize}
+\item $\bb{R}P^2\vee \bb{R}P^2$
+\item $S^2$ with two copies of $\bb{R}P^2$ wedged on at antipodal points where
+  crossing the sphere corresponds to a loop in $a$.
+\item As the previous but with $b$ as the crossing of the sphere.
+\item A wreath of an even number of spheres wedged together.
+\item An infinite chain of spheres wedged together at antipodal points.
+\end{itemize}
+
+
+\sk
+
+\begin{problem} %7
+  
+\end{problem}
+
+\begin{proof}
+  Let $X$ be a path connected, locally path connected, semi-locally simply
+  connected space. Then let $H:=[\pi_1(X,*),\pi_1(X,*)]$ where
+  $[G,G]$ denoted the commutator subgroup and let $\widetilde{X}_{ab}$
+  be the covering space associated with $H$ such that
+  $p_*(\pi_1(\widetilde{X}_{ab},\widetilde{*}))=H$. Then since $H$ is normal
+  $\widetilde{X}_{ab}$ is a normal covering space and its Deck group is
+  $\text{Deck}(\widetilde{X}_{ab})=N(H)/H=\pi_1(X,*)/H$
+  which is Abelian. Moreover any quotient of $\pi_1(X,*)$ with a normal
+  subgroup $\pi_1(X,*)/N$ that is abelian must have $N$ containing $H$ as a
+  subgroup. \textbf{Add why this means $\widetilde{X}_{ab}$ covers them}.
+
+  The universal abelian cover for $S^1\vee S^1$ is the 2d grid of real lines
+  with a copy of $\bb{R}$ for each integer. As shown below.
+  \textbf{Actually insert the picture}.
+
+  The preimage of the basepoint are each of the intersections. The
+  Deck group for the space is $\bb{Z}\times\bb{Z}$.
+
+  For $S^1\vee S^1 \vee S^1$ the universal abelian cover is similar however
+  it is a 3d grid of real lines with a copy of $\bb{R}$ for each integer.
+  \textbf{Insert a picture}
+
+  The preimage of the basepoint will be the intersections. The Deck group
+  of the space is $\bb{Z}\times\bb{Z}\times\bb{Z}$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
