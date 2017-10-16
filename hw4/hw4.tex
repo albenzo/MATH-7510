@@ -12,6 +12,7 @@
 \newcommand{\sk}{\vskip 10mm}
 \newcommand{\bb}[1]{\mathbb{#1}}
 \newcommand{\ra}{\rightarrow}
+\newcommand{\wt}[1]{\widetilde{#1}}
 
 \theoremstyle{plain}
 \newtheorem{problem}{Problem}
@@ -28,8 +29,25 @@
 \end{problem}
 
 \begin{proof}
-  
+  Let $\Sigma,\Sigma'$ be closed orientable surfaces such that $\chi(\Sigma)=n\chi(\Sigma')$ with $n\in\bb{Z}_{>0}$.
+  Since $\Sigma,\Sigma'$ are closed and orientable we can write their Euler characteristic
+  in terms of the genus $(2-2g=\chi)$ of the spaces where in this case the genus will be
+  equivalent to the number holes in the space. This gives us
+  \[ 2-2g = n(2-2g') \Rightarrow 1+n(g'-1)=g\]
+  These numbers correspond in such a way that we can construct the covering
+  space as a single hole in the space with lines of holes length $g'-1$ emerging.
+  This will give us $n$ copies of $\Sigma'$ attached at the center from a continuous
+  deformation of $\Sigma$. Therefore $\Sigma$ is an $n-$fold covering space of $\Sigma'$.
 \end{proof}
+
+In the case where the surfaces are nonorientable both surfaces will be made of
+handles or crosscaps attached to a sphere. In the scenario where it is only crosscaps
+the Euler characteristic in terms of the genus is $\chi(\Sigma)=2-g$ in which case
+the analogous equation to the above would be $2+n(g'-2)=g$. So we could do a
+similar construction with a line of two crosscaps in the center which would
+combine to be a torus. However
+if there is a mix of crosscaps and handles we would need to know that the
+numbers in both surfaces correspond to ensure that we have a covering.
 
 \sk
 
@@ -71,8 +89,67 @@
   
 \end{problem}
 
-\begin{proof}
-  
+\begin{proof}\ \\
+  \begin{itemize}
+  \item[(a)] Let $B$ be a path connected, locally path connected,
+    semi-locally simply connected space and let $p:E\rightarrow B$ be an $n-$sheeted
+    covering space. Define a map $P_\gamma:p^{-1}(b_0)\rightarrow p^{-1}(b_0)$ for
+    $[\gamma]\in\pi_1(B,b_0)$by $e_i\mapsto e_j$
+    if the lift $\wt{\gamma}$ based at $e_i$ fulfills $\gamma(0)=e_i$ and $\gamma(1)=e_j$.
+    The map $P_\gamma$ is a bijection since $P_{\gamma^{-1}}$ will send $e_j$ to $e_i$
+    for any $e_i$ and as such $P_\gamma$ has an inverse. Therefore we can
+    define a map $\varphi_E:\pi_1(B,b_0)\rightarrow S_n$ by $\gamma\mapsto P_\gamma$.
+    
+    To show that $\varphi_E$ is a homomorphism consider $[\alpha],[\beta]\in\pi_1(B,b_0)$.
+    Suppose that $P_\alpha(e_i)=e_j$ and $P_\beta(e_j)=e_k$. Then for some $e_i$
+    \[ \varphi_E(\beta)\circ\varphi_E(\alpha)(e_i)=P_\beta\circ P_\alpha(e_i)=e_k=P_{\alpha*\beta}(e_i)=\varphi_E(\alpha*\beta)\]
+    Therefore $\varphi_E:\pi_1(B,b_0)\rightarrow S_n$ is a homomorphism. This representation
+    of $\pi_1(B,b_0)$ is dependent on the covering space. Therefore we can
+    construct a map $\rho$ from the set of equivalence classes of $n-$sheeted
+    covering spaces and representations of $\pi_1(B,b_0)$ via
+    $E\mapsto \varphi_E$.
+
+    We will show that $\rho$ is a bijection by constructing its inverse.
+    Let $\psi:\pi_1(B,b_0)\rightarrow S_n$ be a representation of $\pi_1(B,b_0)$. First
+    let $\wt{E}$ be the universal cover of $B$ viewed as homotopy
+    classes of paths based at $b_0$ and consider the space
+    $\wt{E}\times \{0,\ldots,n\}$. We can define the covering space
+    $E_\psi$ as a quotient space of $\wt{E}$. First define a
+    map $h:\wt{E}\times\{0,\ldots,n\}$ as $h([\gamma],e_i)=\wt{\gamma}(1)$ where
+    $\wt{\gamma}$ is the lift of $\gamma$ based at $e_i$. Consider points
+    $e_i,e_j,$ and $e_k$ such that $P_\alpha(e_i)=e_k$. Then if
+    there is a path $\gamma$ such that $h([\gamma],e_i)=e_k$
+    and $h([\gamma],e_j)=e_k$ then $e_i\sim e_j$. This will collapse
+    the universal cover such that the action $\psi$ is well defined
+    on $X/\sim$ Therefore the quotient is a covering space that
+    realizes the action associated with the action associated
+    with $\psi$ up to equivalence of covering spaces.
+
+    Therefore the equivalences classes of $n-$sheeted covering
+    spaces are in bijection with representations of $\pi_1(B,b_0)$
+    in $S_n$
+  \item[(b)] Suppose that $\wt{X}$ is path connected. Then
+    consider the path from $\alpha$ in $\wt{X}$ such that
+    $\alpha(0)=e_i$ and $\alpha(1)=e_j$. Then $p\circ\alpha$ is a loop that
+    such that the action will permute $e_i$ and $e_j$.
+    Since we can do this for any such $i$ and $j$
+    the representation is transitive.
+
+    Otherwise suppose that the representation
+    $\varphi:\pi_1(B,b_0)\rightarrow S_n$ is transitive. Then given
+    $e_i\in p^{-1}(b_0)$ there is a path to $e_j\in p^{-1}(b_0)$.
+    The map from the fundamental group based at $b_0$ to
+    some $b\in B$ induces an isomorphism of fundamental groups
+    so the action will remain transitive. As such by the
+    same reasoning we can always go between preimages of
+    a point. However since $B$ is path connected if
+    we lift a path from $b$ to $b'$ this will lift
+    to a path between two specific preimages giving us
+    a way to construct paths between any two points of $E$.
+
+    Therefore $\wt{X}$ is path connected if and only if
+    the representation is transitive.
+  \end{itemize}
 \end{proof}
 
 \sk
@@ -149,17 +226,24 @@ The subgroups for this group are:
 \item $\langle a,b|a^2,b^2\rangle$
 \end{itemize}
 
-The covering spaces, with pictures below, that correspond to having
+The covering spaces, with pictures attached, that correspond to having
 the above group of Deck transformations are:
 
 \begin{itemize}
-\item $\bb{R}P^2\vee \bb{R}P^2$
-\item $\bb{R}P^2$ where $b$ lifts to a constant loop.
-\item $\bb{R}P^2$ where $a$ lifts to a constant loop.
-\item A wreath of an even number of spheres wedged together.
+\item $\bb{R}P^2\vee \bb{R}P^2$ which projects to $\pi_1(\bb{R}P^2\vee \bb{R}P^2,*)$
+\item $\bb{R}P^2$ where $b$ lifts to a constant loop. This corresponds to
+  the subgroup $\langle a\rangle$
+\item $\bb{R}P^2$ where $a$ lifts to a constant loop. This corresponds to
+  the subgroup $\langle b\rangle$
+\item A wreath of $2n$ spheres wedged together at distinct points.
+  This projects to the subgroup $\langle (ab)^n\rangle$
 \item An infinite chain of spheres wedged together at antipodal points.
+  This projects to the subgroup $\{e\}$.
 \end{itemize}
 
+Since we have a covering space for each subgroup of $\langle a,b|a^2,b^2\rangle$ and
+covering spaces that project to the same subgroup are equivalent we
+can conclude that these characterize all covering spaces of $\bb{R}P^2\vee \bb{R}P^2$.
 
 \sk
 
@@ -177,18 +261,18 @@ the above group of Deck transformations are:
   $\text{Deck}(\widetilde{X}_{ab})=N(H)/H=\pi_1(X,*)/H$
   which is Abelian. Moreover any quotient of $\pi_1(X,*)$ with a normal
   subgroup $\pi_1(X,*)/N$ that is abelian must have $N$ containing $H$ as a
-  subgroup. \textbf{Add why this means $\widetilde{X}_{ab}$ covers them}.
+  subgroup. Thus $\wt{X}_{ab}$ must cover the covering space corresponding
+  to $N$.
 
   The universal abelian cover for $S^1\vee S^1$ is the 2d grid of real lines
-  with a copy of $\bb{R}$ for each integer. As shown below.
-  \textbf{Actually insert the picture}.
+  with a copy of $\bb{R}$ for each integer.
 
   The preimage of the basepoint are each of the intersections. The
   Deck group for the space is $\bb{Z}\times\bb{Z}$.
 
   For $S^1\vee S^1 \vee S^1$ the universal abelian cover is similar however
   it is a 3d grid of real lines with a copy of $\bb{R}$ for each integer.
-  \textbf{Insert a picture}
+  Both pictures are attached.
 
   The preimage of the basepoint will be the intersections. The Deck group
   of the space is $\bb{Z}\times\bb{Z}\times\bb{Z}$.
