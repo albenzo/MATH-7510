@@ -1,0 +1,109 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\wt}[1]{\widetilde{#1}}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem}
+  In the context of our proof of the zig-zag lemma.
+  Prove that $\ker(\phi_\ast) \subset \mathrm{Im}(\partial_\ast)$ and $\ker(\psi_\ast) \subset \mathrm{Im}(\phi_\ast)$.
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{problem}
+  Let $A: S^n \to S^n$ be the antipodal map. What is $A_\ast : H_n(S^n) \to H_n(S^n)$?
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{problem}
+  Give a geometric description of the boundary map in the Mayer-Vietoris sequence.
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{problem}
+  Using the Mayer-Vietoris sequence, compute the homology of the $n$-Sphere, $H_\ast (S^n)$.
+\end{problem}
+
+\begin{proof}
+  We'll start by computing the reduced homology of $S^0$ and proceed by induction.
+  The zeroth reduced homology group is the one less than the number of
+  connected components copies of $\bb{Z}$. Since $S^0$ is two disjoint points we
+  have that $\wt{H}_0(S^0)\cong\bb{Z}$.
+
+  Next assume that $\wt{H}_{n-1}(S^{n-1})\cong\bb{Z}$ and is zero elsewhere.
+  Then consider $S^n$ as the union of a point $*$ and $D^n$ enlarging them both slightly.
+  Their intersection will be homotopy equivalent to $S^{n-1}$.
+  Then using the Mayer-Vietoris sequence we have the long exact sequence
+  \[
+    \xymatrix{
+      \cdots \ar[r] &H_n(S^{n-1}) \ar[r] & H_n(*)\oplus H_n(D^n)\ar[r] & H_n(S^n) \ar[r]
+      &H_{n-1}(S^{n-1})\ar[r] & \cdots \\
+    }
+  \]
+  All other portions of the sequence be either zero or $H_p(S^n)$ sandwiched between
+  two zeros forcing it to be zero. Rewrite the above sequence with the portions
+  we know and we get
+  \[
+    \xymatrix{
+      0\ar[r] & H_n(S^n) \ar[r]& (H_{n-1}(S^{n-1})\cong\bb{Z})\ar[r] & 0\\
+    }
+  \]
+  Which implies that $\wt{H}_n(S^n)\cong \wt{H}_{n-1}(S^{n-1})\cong\bb{Z}$.
+
+  Therefore the homology of $S^n$ is
+  \[ H_p(S^n)=\left\{
+      \begin{array}{cc}
+        \bb{Z}& p=n,0\\
+        0 & \mathrm{else}\\
+      \end{array}
+    \right.\]
+  except for $S^0$ which has $H_0(S^0)=\bb{Z}^2$ and 0 elsewhere.
+\end{proof}
+
+\begin{problem}
+  Let $T^2 = S^1 \times S^1$ be the torus, and $h: S^1 \to T^2$ an embedding of the unit
+  circle into $T^2$. Form the space 
+  \begin{equation*}
+    X = T^2 \cup_h D^2
+  \end{equation*}
+  by attaching a $2$-cell $D^2$ to $T^2$ via the map $h$. Compute the homology of $X$.
+  Note that there is more than one case.
+\end{problem}
+
+\begin{proof}
+
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\end{document}
