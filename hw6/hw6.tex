@@ -69,6 +69,8 @@
   $\ker(\psi_*)\subset\mathrm{Im}(\phi_*)$.
 \end{proof}
 
+\sk
+
 \begin{problem}
   Let $A: S^n \to S^n$ be the antipodal map. What is $A_\ast : H_n(S^n) \to H_n(S^n)$?
 \end{problem}
@@ -90,6 +92,8 @@
   inverse map when $n$ is even.
 \end{proof}
 
+\sk
+
 \begin{problem}
   Give a geometric description of the boundary map in the Mayer-Vietoris sequence.
 \end{problem}
@@ -99,6 +103,8 @@ sequence. Start with a cycle $[h]\in H_n(X)$. Then we can write $h=u+v$ where $u
 lie wholly in $U$ and $V$ respectively. Since $h$ represents a class in homology
 we have $\partial x = 0$. However this implies that $\partial u+\partial v = 0$ giving us that
 $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap V$ and thus $\partial_*[h]=[u]$.
+
+\sk
 
 \begin{problem}
   Using the Mayer-Vietoris sequence, compute the homology of the $n$-Sphere, $H_\ast (S^n)$.
@@ -140,6 +146,8 @@ $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap
   except for $S^0$ which has $H_0(S^0)=\bb{Z}^2$ and 0 otherwise.
 \end{proof}
 
+\sk
+
 \begin{problem}
   Let $T^2 = S^1 \times S^1$ be the torus, and $h: S^1 \to T^2$ an embedding of the unit
   circle into $T^2$. Form the space 
@@ -156,8 +164,8 @@ $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap
   the sequence are
   \[
     \xymatrix{
-    0 \ar[r] & H_2(T^2)\oplus H_2(D^2) \ar[r] & H_2(X) \ar[r] & H_1(S^1) \ar[r] &
-    H_1(T^2)\oplus H_1(D^2) \ar[r] & H_1(X) \ar[r] & 0\\
+      0 \ar[r] & H_2(T^2)\oplus H_2(D^2) \ar[r]^-{k_*-l_*} & H_2(X) \ar[r]^-{\partial_*} &
+      H_1(S^1) \ar[r]^-{i_*\oplus j_*} & H_1(T^2)\oplus H_1(D^2) \ar[r]^-{k_*-l_*} & H_1(X) \ar[r] & 0\\
     }
   \]
   Then filling in for some of the groups we have the exact sequence
@@ -167,9 +175,53 @@ $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap
       &\bb{Z}\oplus\bb{Z}\ar[r] & H_1(X)\ar[r] & 0
     }
   \]
-  There are two cases to consider for the map $h$. The first is where $h$
+  For $H_0(X)$ there is a single connected component which implies that
+  $H_0(X)\cong \bb{Z}$. Otherwise for the higher homotopy groups there are two
+  cases to consider for the map $h$. The first is where $h$
   is homotopic to one of the generators of $H_1(T)$ and the latter is when $h$
   is null.
+
+  Suppose that $h$ attaches the disk along one of the generators for $H_1(T^2)$.
+  Then the kernel of $i_*\oplus j_*$ is $0$. It then follows that the image of
+  $\partial_*$ is $0$ making the first $k_*-l_*$ surjective. Since it is already
+  injective from its position in the exact sequence it is an isomorphism.
+  Thus $H_2(X)\cong\bb{Z}$.
+
+  To find $H_1(X)$ we know that $H_1(X)\cong (H_1(T^2)\oplus H_1(D_2))/\ker(k_*-l_*)$ since
+  the latter $k_*-l_*$ is surjective by its position in the exact sequence.
+  However $H_1(T^2)\oplus H_1(D^2)\cong\bb{Z}\oplus\bb{Z}$ and
+  $\ker(k_*-l_*)\cong \mathrm{Im}(i_*\oplus j_*)\cong \bb{Z}$ which implies that
+  $H_1(X)\bb{Z}\oplus\bb{Z}/\bb{Z}\cong\bb{Z}$.
+
+  Now we consider the case where $h$ is null. If $h$ is null then the kernel
+  of $i_*\oplus j_*$ is $H_1(S^1)$. Then $\mathrm{Im}(\partial_*)=H_1(S^1)$ which implies that
+  $\partial_*$ is surjective. Using the first isomorphism theorem we have that
+  $H_2(X)/\ker \partial_* \cong H_1(S^1)\cong \bb{Z}$. However $\ker\partial_*=\mathrm{Im}(k_*-l_*)\cong \bb{Z}$
+  as $H_2(T^2)\oplus H_2(D^2)\cong \bb{Z}$ and $k_*-l_*$ is injective by exactness. Thus
+  $H_2(X)/\bb{Z}\cong\bb{Z}$ which implies that $H_2(X)\cong \bb{Z}\oplus\bb{Z}$.
+
+  For $H_1(X)$, by the first isomorphism theorem we have that
+  $H_1(T^2)\oplus H_1(D^2)/\ker(k_*-l_*)\cong H_1(X)$. However since
+  $\ker(k_*-l_*)=\mathrm{Im}(i_*\oplus j_*)\cong 0$ we have that
+  $\bb{Z}\oplus\bb{Z}/0\cong \bb{Z}\oplus\bb{Z}\cong H_1(X)$.
+
+  Therefore if $h$ is a generator of $H_1(T^2)$ the nonzero homology groups are
+  \[
+    \begin{array}{cl}
+      H_0(X) \cong& \bb{Z}\\
+      H_1(X) \cong& \bb{Z}\\
+      H_2(X) \cong& \bb{Z}\oplus\bb{Z}\\
+    \end{array}
+  \]
+
+  and if $h$ is null
+  \[
+    \begin{array}{cl}
+      H_0(X) \cong& \bb{Z}\\
+      H_1(X) \cong& \bb{Z}\\
+      H_2(X) \cong& \bb{Z}\\
+    \end{array}
+  \]
 \end{proof}
 
 
