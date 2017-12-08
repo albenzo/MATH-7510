@@ -1,0 +1,314 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage[all,cmtip]{xy}
+
+\textwidth=15cm \textheight=22cm \topmargin=0.5cm \oddsidemargin=0.5cm \evensidemargin=0.5cm
+
+\newcommand{\sk}{\vskip 10mm}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\rk}{\mathrm{rk}}
+
+\theoremstyle{plain}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}[problem]
+
+\theoremstyle{remark}
+\newtheorem{tpart}{}[problem]
+\newtheorem*{ppart}{}
+
+\begin{document}
+
+\begin{problem}
+  Let $X$ denote the surface of genus two with a single boundary component.
+  Let $A$ denote the boundary of $X$. Compute the relative homology groups
+  $H_p(X,A)$.
+\end{problem}
+
+\begin{proof}
+  The surface of genus two with a single boundary component will be a $2$-holed
+  torus with a disk removed where the boundary of the disk is $A$. From Hatcher
+  we have that $H_p(X,A)\cong \widetilde{H}_p(X/A)$. However $X/A$ is homeomorphic
+  to the $2$-holed torus. As such the relative homology will be
+  \[
+    H_p(X,A)=
+    \left\{
+      \begin{array}{cr}
+        0&p=0\\
+        \bb{Z}\oplus\bb{Z}\oplus\bb{Z}\oplus\bb{Z} & p=1\\
+        \bb{Z}&p=2\\
+      \end{array}
+    \right.
+  \]
+\end{proof}
+
+\sk
+
+\begin{problem}
+  Show that $S^1\times S^1$ and $S^1\vee S^1\vee S^2$ have isomorphic homology groups,
+  but that their universal covering spaces do not.
+\end{problem}
+
+\begin{proof}
+  The first space $S^1\times S^1$ is the torus. As such its homology groups are
+  \[ H_p(T^2)=
+    \left\{
+      \begin{array}{lr}
+        \bb{Z}& p=0,2\\
+        \bb{Z}\oplus\bb{Z}&p=1\\
+        0&\mathrm{otherwise}
+      \end{array}
+    \right.
+  \]
+  For the latter space we can use the fact that the connected sum corresponds to
+  the direct sum of the reduced homology groups. Since for $S^n$ the only nonzero
+  reduced homology group is $H_n(S^n)=\bb{Z}$ we have
+  \[
+    H_p(S^1\vee S^1\vee S^2)=
+    \left\{
+      \begin{array}{lr}
+        \bb{Z}& p=0,2\\
+        \bb{Z}\oplus\bb{Z}&p=1\\
+        0&\mathrm{otherwise}
+      \end{array}
+    \right.
+  \]
+  which shows that their homology groups are isomorphic.
+
+  The universal cover of $S^1\times S^1\cong T^2$ is the grid $\bb{Z}\times\bb{Z}$ wherein
+  each point is connected to its neighbors by a unit interval. The universal
+  cover of $S^1\vee S^1\vee S^2$ will be the Cayley graph of $\bb{Z}*\bb{Z}$
+  where each point has an $S^2$ attached to it. The covering space of the
+  former does not have any two cells which implies that $\widetilde{H}_2(T^2)=0$.
+  However since there are no three cells and each two sphere is attached at
+  only one point $\widetilde{H}_2(S^1\vee S^1\vee S^2)$ will be nontrivial.
+
+  Therefore the homology of the universal covers of $S^1\times S^1$ and $S^1\vee S^1\vee S^2$
+  are not isomorphic even though their homologies are.
+\end{proof}
+
+\sk
+
+\begin{problem}
+  Group the following spaces into homotopy equivalence classes. Justify
+  your answers.
+  \begin{itemize}
+  \item[(a)] M\"obius band
+  \item[(b)] The torus
+  \item[(c)] $B^2\times S^1$
+  \item[(d)] The torus minus one point
+  \item[(e)] The torus minus two points
+  \item[(f)] The Klein bottle minus one point
+  \item[(g)] $\bb{R}^3$ minus the $z$-axis
+  \item[(h)] $\bb{R}^3$ minus the unit circle in the $xy$-plane, $\{x^2+y^2=0,z=0\}$
+  \item[(i)] The intersection of $(g)$ and $(h)$
+  \item[(j)] $S^3$ minus two linked circles
+  \item[(k)] $S^3$ minus two unlinked circles
+  \end{itemize}
+\end{problem}
+
+There are many pictures attached showing important points as well as
+explanation attached below. The equivalence classes are
+\[
+  \begin{array}{c|c|c|c|c|c}
+    S^1&T^2&S^1\vee S^1&S^1\vee S^1 \vee S^1& S^1\vee (S^1\vee S^2)& S^1\vee S^2\\
+    \hline
+    (a)&(b)&(d)&(e)&(k)&(h)\\
+    (c)&(i)&(f)&&&\\
+    (g)&(j)&&&&\\
+  \end{array}
+\]
+
+\begin{itemize}
+\item[(a)] For the M\"obius band there is a circle running along the center with
+  an interval attached. We can squish the interval down to a point to get a circle.
+\item[(b)] The torus is a torus.
+\item[(c)] Each point of the circle has a disk attached that we can squish down to a
+  point.
+\item[(d)] If we draw the torus as a square with sides identified and poke a hole
+  in the middle we can deform the punctured disk to its boundary which is
+  $S^1\vee S^1$.
+\item[(e)] Similar to $(d)$ except when we puncture two holes we have to retract the
+  part to a line between the holes.
+\item[(f)] This is the same process as the torus in that when we puncture the
+  disk we can pull it back to the boundary.
+\item[(g)] We can flatten it to $\bb{R}^2\setminus\{0\}$ which is homotopy equivalent to a
+  circle.
+\item[(h)] This space is almost a torus however having the $z$-axis left interferes
+  with that. As such we can pull the space down to get an $S^2$ except with
+  the two points on the $z$-axis attached. Pull them apart leaving an interval
+  connecting them and then move the two attachment points together to get
+  $S^1\vee S^2$.
+\item[(i)] If we take a look at a vertical slice we get an open half plane
+  minus a point. This will be homotopy equivalent to a circle. Since there
+  is one for each point of the circle this is a Torus.
+\item[(j)] Being in $S^3$, as opposed to $\bb{R}^3$ lets us effectively take one
+  of the circles and turn it into a line by putting it through ``the point at
+  infinity'' of $\bb{R}^3$. If we do this with two linked circles we get a line
+  going through a circle which is a space homeomorphic to $(h)$.
+\item[(k)] We do the same process as above except we end up with a line not
+  going through the circle. This ends up being as shown in the picture
+  the wedge of $\bb{R}^3$ with a line taken out and an $\bb{R}^3$ with the circle
+  taken out. Thus giving us $S^1\vee (S^1\vee S^2)$.
+\end{itemize}
+
+\sk
+
+\begin{problem}
+  Compute the homology of the $CW$ complex obtained from the cube
+  $I\times I\times I$ by identifying opposite faces after a $1/4$ twist.
+\end{problem}
+
+\newpage
+\ 
+\vskip3in
+
+\begin{proof}
+  The picture above is a CW complex $X$. The boundary maps
+  will be
+  \begin{align*}
+    \partial I&= E-E+F-F+G=0\\
+    \partial E&= a+b+c+d\\
+    \partial F&= a-b-c+d\\
+    \partial G&= a+b-c-d\\
+    \partial a&= v-u\\
+    \partial b&= u-v\\
+    \partial c&= v-u\\
+    \partial d&= u-v\\
+    \partial u&= 0\\
+    \partial v&= 0\\
+  \end{align*}
+
+  We'll start with $H_3(X)$. Since there are no 4-cells we have that
+  $\mathrm{Im}(\partial_4)=0$ and since $\partial I=0$ it must be that $H_3(X)\cong\bb{Z}$.
+
+  Next for $H_2(X)$ the image of $\partial_3$ is zero. As such $H_2(X)\cong \ker \partial_2$.
+  If we look at $\partial_2$ as a matrix it will be
+  \[
+    \left(
+      \begin{array}{rrr}
+        1&1&1\\
+        1&-1&1\\
+        1&-1&-1\\
+        1&1&-1\\
+      \end{array}
+    \right)
+  \]
+
+  If we reduce this to Smith normal form we get
+  \[
+    \left(
+      \begin{array}{rrr}
+        1&0&0\\
+        0&2&0\\
+        0&0&2\\
+        0&0&0\\
+      \end{array}
+    \right)
+  \]
+
+  for which the kernel is zero. Therefore $H_2(X)=0$.
+
+  Next we will compute $H_1(X)$. Using the matrix above we have that
+  $\mathrm{Im}\partial_2=\langle a,2b,2c\rangle$. Since $\partial_1 a=\partial_1 c=-\partial_1 b=-\partial_1 d$ the
+  kernel of $\partial_1$ will linear combinations where the number of $a,c$s and
+  the number of $b,d$s are equal. If we mod this out by the image of
+  $\partial_2$ we have $a=0$, $d$ is left alone, $2b=0$, and $2c=0$. However
+  since $d$ and $c$ have to agree with the $a$s and $b$s we are left
+  with $\langle b,c|2b=0,2c=0\rangle$. This gives us that
+  $H_1(X)\cong \bb{Z}_2\oplus\bb{Z}_2$.
+
+  Finally $H_0(X)\cong \bb{Z}$ as there is one connected component.
+
+  Thus the homology groups for this space are
+  \[
+    H_p(X) = 
+    \left\{
+      \begin{array}{lr}
+        \bb{Z}& p=0,3\\
+        \bb{Z}_2\oplus\bb{Z}_2 & p=1\\
+        0 & p=2\\
+      \end{array}
+    \right.
+  \] 
+\end{proof}
+
+\sk
+
+\begin{problem}
+  A map $f:S^n\rightarrow S^n$ satisfying $f(x)=f(-x)$ for all $x\in S^n$ is called and
+  \textit{even map}. Show that an even map $S^n\rightarrow S^n$ must have even degree,
+  and that the degree must in fact be zero when $n$ is even. When $n$ is odd,
+  show that there exist even maps of any given even degree.
+  [Hint: First show that if $f$ is even, then it necessarily factors as a
+  composition $S^n\rightarrow \bb{R}P^n\rightarrow S^n$.]
+\end{problem}
+
+\begin{proof}
+  Let $f$ be a map from $S^n$ to $S^n$ such that $f(x)=f(-x)$ for all $x\in S^n$.
+  Since $\bb{R}P^n$ is a quotient space of $S^n$ where antipodal points are
+  identified any even map from $S^n$ respects equivalence classes for the
+  quotient space and as such it factors as
+  \[
+    \xymatrix{
+      S^n \ar[d]^q \ar[r]^f & S^n\\
+      \bb{R}P^n \ar[ru]_{\widetilde{f}}
+    }
+  \]
+
+  First note that $\deg q =2$. This is because
+  for any point $x\in\bb{R}P^n$ it will have two points mapping to it from $S^n$ and
+  it will be the identity map giving us local degrees of 1 which add up to 2. Since
+  any even map will factor in this way any even map must have even degree.
+  
+  When $n$ is even $H_n(\bb{R}P^n)\cong\bb{Z}$ and when $n$ is even $H_n(\bb{R}P^n)\cong 0$.
+  If $n$ is odd and $f$ is even then $\deg f = \deg q\cdot\deg \widetilde{f}$. However
+  since $H_n(\bb{R}P^n)\cong 0$ when $n$ is even then the degree of $f$ has to be zero
+  as $\deg \widetilde{f}=0$ since it is mapping out of the trivial group.
+
+  Now suppose that $n$ is odd. There is a quotient map
+  $r:\bb{R}P^n\rightarrow (\bb{R}P^n/\bb{R}P^{n-1}\equiv S^n)$. This map will have degree $1$ and
+  as such $q\circ r$ will be a map from $S^n\rightarrow S^n$ of degree two. From there if we
+  take a map of degree $k$, $f_k:S^n\rightarrow S^n$ (Hatcher $2.32$). Then $f_k\circ q\circ r$ will be
+  an even map of degree $2k$.
+\end{proof}
+
+\sk
+
+\begin{problem}
+  Let $\mathcal{C}=(C_i,\partial)$ be a chain complex over $\bb{R}$ with only
+  finitely many $C_i\neq 0$. Show that the following methods for computing
+  Euler characteristic yield the same answer:
+  \[ \chi(\mathcal{C})=\sum_i(-1)^i\mathrm{rk}C_i\]
+  and
+  \[ \chi(\mathcal{C})=\sum_i(-1)^i\mathrm{rk}H_i(\mathcal{C})\]
+  The same is true with $\bb{Z}$ coefficients, but requires a tiny bit
+  more thought.
+\end{problem}
+
+\begin{proof}
+  Note that if any of the $C_i$s are infinite dimensional then the sum
+  is infinite and the equality will hold.
+  
+  Otherwise suppose that all of the $C_i$s are of finite dimension and start
+  with the sum using homology
+  \[\chi(\mathcal{C})= \sum_i (-1)^i(\rk H_i(\mathcal{C})) \]
+  Since $H_i(\mathcal{C})=\ker\partial_i/\mathrm{Im}\partial_{i+1}$ the sum is equivalent to
+  \[ \sum_i(-1)^i(\rk\ker\partial_i-\mathrm{Im}\partial_{i+1}) \]
+  As there are only finitely many $C_i$ that are nonzero we can rearrange
+  the terms as we desire to get
+  \[ \sum_i(-1)^i(\rk\ker\partial_i+\mathrm{Im}\partial_i)\]
+  by shifting all of the images up one term. By the rank nullity theorem we
+  then have
+  \[ \sum_i(-1)^i\rk C_i \]
+  which completes the proof.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

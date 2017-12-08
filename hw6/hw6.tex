@@ -63,9 +63,9 @@
   Next we'll show that $\ker(\psi_*)\subset\mathrm{Im}(\phi_*)$. Let $[d]\in \ker(\psi_*)$. Then
   we know that $\partial d=0$ and that for $e:=\psi(d)$ that there exists $\partial e':= e$.
   Since $\psi$ is surjective we have $\psi(d'):=e'$. By commutativity we have
-  that $\psi(d-\partial d')=0$ so there exists an $a$ such that $\phi(a)=d-\partial d'$ which is
-  unique by injectivity of $\phi$. In addition $\partial a=0$ by commutativity.
-  Then in homology we get that $\phi_*[a] = [d-\partial d']=[d]$. Therefore
+  that $\psi(d-\partial d')=0$ so there exists an $c$ such that $\phi(c)=d-\partial d'$ which is
+  unique by injectivity of $\phi$. In addition $\partial c=0$ by commutativity.
+  Then in homology we get that $\phi_*[c] = [d-\partial d']=[d]$. Therefore
   $\ker(\psi_*)\subset\mathrm{Im}(\phi_*)$.
 \end{proof}
 
@@ -102,7 +102,7 @@ Begin with our space $X=U\cup V$ satisfying the conditions for the Mayer-Vietori
 sequence. Start with a cycle $[h]\in H_n(X)$. Then we can write $h=u+v$ where $u,v$
 lie wholly in $U$ and $V$ respectively. Since $h$ represents a class in homology
 we have $\partial x = 0$. However this implies that $\partial u+\partial v = 0$ giving us that
-$\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap V$ and thus $\partial_*[h]=[u]$.
+$\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap V$ and thus $\partial_*[h]=[\partial u]$.
 
 \sk
 
@@ -181,17 +181,15 @@ $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap
   is homotopic to one of the generators of $H_1(T)$ and the latter is when $h$
   is null.
 
-  Suppose that $h$ attaches the disk along one of the generators for $H_1(T^2)$.
-  Then the kernel of $i_*\oplus j_*$ is $0$. It then follows that the image of
-  $\partial_*$ is $0$ making the first $k_*-l_*$ surjective. Since it is already
-  injective from its position in the exact sequence it is an isomorphism.
-  Thus $H_2(X)\cong\bb{Z}$.
+  Suppose that $h\sim (m,n)\in H_1(T^2)$. Then the kernel of $i_*\oplus j_*$ is 0 as
+  $i_*\oplus j_*(1)=(m,n)$. This implies that the image of $\partial_*$ is 0 giving us
+  that $k_*-l_*$ is surjective from exactness. Also from exactness the map
+  is injective which means that $H_2(X)\cong H_2(T^2)\oplus H_2(D^2)\cong\bb{Z}$.
 
-  To find $H_1(X)$ we know that $H_1(X)\cong (H_1(T^2)\oplus H_1(D_2))/\ker(k_*-l_*)$ since
-  the latter $k_*-l_*$ is surjective by its position in the exact sequence.
-  However $H_1(T^2)\oplus H_1(D^2)\cong\bb{Z}\oplus\bb{Z}$ and
-  $\ker(k_*-l_*)\cong \mathrm{Im}(i_*\oplus j_*)\cong \bb{Z}$ which implies that
-  $H_1(X)\bb{Z}\oplus\bb{Z}/\bb{Z}\cong\bb{Z}$.
+  For $H_1(X)$ note that the image of $i_*\oplus j_*$ is $k(m,n)$ which by exactness
+  is the kernel of $k_*-l_*$. We know that $k_*-l_*$ is surjective by exactness.
+  It then follows from the first isomorphism theorem that
+  \[H_1(X)\cong\bb{Z}\oplus\bb{Z}/\ker(k_*-l_*)\cong\bb{Z}\oplus\bb{Z}/\langle(m,n)\rangle\cong\bb{Z}_m\oplus\bb{Z}_n\]
 
   Now we consider the case where $h$ is null. If $h$ is null then the kernel
   of $i_*\oplus j_*$ is $H_1(S^1)$. Then $\mathrm{Im}(\partial_*)=H_1(S^1)$ which implies that
@@ -205,12 +203,12 @@ $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap
   $\ker(k_*-l_*)=\mathrm{Im}(i_*\oplus j_*)\cong 0$ we have that
   $\bb{Z}\oplus\bb{Z}/0\cong \bb{Z}\oplus\bb{Z}\cong H_1(X)$.
 
-  Therefore if $h$ is a generator of $H_1(T^2)$ the nonzero homology groups are
+  Therefore if $h\sim (m,n)\in H_1(T^2)$ the nonzero homology groups are
   \[
     \begin{array}{cl}
       H_0(X) \cong& \bb{Z}\\
-      H_1(X) \cong& \bb{Z}\\
-      H_2(X) \cong& \bb{Z}\oplus\bb{Z}\\
+      H_1(X) \cong& \bb{Z}_m\oplus \bb{Z}_n\\
+      H_2(X) \cong& \bb{Z}\\
     \end{array}
   \]
 
@@ -218,8 +216,8 @@ $\partial u = -\partial v$. It then follows that $\partial u,\partial v\in U\cap
   \[
     \begin{array}{cl}
       H_0(X) \cong& \bb{Z}\\
-      H_1(X) \cong& \bb{Z}\\
-      H_2(X) \cong& \bb{Z}\\
+      H_1(X) \cong& \bb{Z}\oplus \bb{Z}\\
+      H_2(X) \cong& \bb{Z}\oplus \bb{Z}\\
     \end{array}
   \]
 \end{proof}
